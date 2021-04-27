@@ -1,0 +1,66 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  linux:
+    product: linux
+    conditions:
+      rg_functionality: Operating System / Unix / Windows
+  windows-sys:
+    product: windows
+    service: sysmon
+    conditions:
+      rg_vendor: Microsoft Corporation
+      resourcetype: Microsoft Sysmon
+      rg_functionality: Operating System / Unix / Windows
+  windows:
+    product: windows
+    category: process_creation
+    conditions:
+#      rg_vendor: Microsoft Corporation
+      rg_functionality: Operating System / Unix / Windows
+  firewall:
+    product: firewall
+    conditions:
+      rg_functionality: Next Generation Firewall
+fieldmappings:
+  EventID: baseeventID
+  Event-ID: baseeventID
+  Event_ID: baseeventID
+  eventId: baseeventID
+  event_id: baseeventID
+  event-id: baseeventID
+  eventid: baseeventID
+  TargetImage:
+    - customstring54
+    - customstring57
+#    - destinationprocessname
+#    - filePath
+  StartModule:
+    - StartModule
+  CommandLine:
+    - CommandLine
+    - customstring6
+    - resourcecustomfield1
+    - resourcecustomfield2
+    - resourcecustomfield3
+  Image:
+    - deviceprocessname
+    - destinationprocessname
+    - sourceprocessname
+    - resourcecustomfield4
+  dst:
+    - DestinationAddress
+  dst_ip:
+    - DestinationAddress
+  src:
+    - SourceAddress
+  src_ip:
+    - SourceAddress
+  file_hash:
+    - FileHash
+  NewProcessName: process.name
+  ServiceName: process.name
+  ServiceFileName: process.name
+  TargetObject: registry.path

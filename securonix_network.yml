@@ -1,0 +1,13 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  logsource:
+    category: accounting
+    product: cisco
+    service: aaa
+    conditions:
+      rg_functionality: Network Access Control / NAC
+#fieldmappings:
+

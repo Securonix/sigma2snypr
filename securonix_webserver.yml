@@ -1,0 +1,31 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  web:
+    product: apache
+    conditions:
+      rg_functionality: Web Server
+  webserver:
+    category: webserver
+    conditions:
+      rg_functionality: Web Server
+fieldmappings:
+  cs-method: requestmethod
+  cs-uri: requesturl
+  c-uri: requesturl
+  c-useragent: customstring9
+  method: requestmethod
+  referer: customstring4
+  sc-status: customstring1
+  useragent: customstring9
+  c-ip: ipaddress
+  client_ip: ipaddress
+  url: requesturl
+  vhost:
+    - destinationhostname
+    - sourcehostname
+  uri_query: requesturl
+# response:
+# c-dns:  

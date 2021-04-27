@@ -1,0 +1,15 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  cloud:
+    service: cloudtrail
+    conditions:
+      rg_functionality: Cloud Services / Applications
+fieldmappings:
+  eventName: customstring45
+  eventSource: customstring42
+  requestParameters.userData: customstring51
+  userIdentity.type: resourcecustomfield1
+  userIdentity.arn: customstring52

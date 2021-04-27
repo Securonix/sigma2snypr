@@ -1,0 +1,19 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  authentication:
+    category: authentication
+    conditions:
+      rg_functionality: Authentication / SSO / Single Sign-On
+fieldmappings:
+  action:
+    - resourcecustomfield2
+    - customstring45
+    - customstring51
+  src_ip: sourceaddress
+  dst_ip: destinationaddress
+  user:
+    - destinationusername
+    - sourceusername

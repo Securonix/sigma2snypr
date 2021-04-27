@@ -1,0 +1,16 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  firewall:
+    category: firewall
+    conditions:
+      rg_functionality: Next Generation firewall
+fieldmappings:
+  dst_ip: destinationaddress
+  dst_port: destinationport
+  src_ip: sourceaddress
+  action:
+    - customstring31
+    - deviceaction

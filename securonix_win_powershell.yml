@@ -1,0 +1,32 @@
+title: Securonix
+order: 20
+backends:
+  - securonix
+logsources:
+  windows-powershell-classic:
+    product: windows
+    service: powershell-classic
+    conditions:
+      rg_functionality: Microsoft Windows Powershell
+  windows-powershell:
+    product: windows
+    service: powershell
+    conditions:
+      rg_functionality: Microsoft Windows Powershell
+fieldmappings:
+  CommandLine: customstring6
+  Commandline: customstring6
+  ContextInfo: customstring24
+  EngineVersion: resourcecustomfield4
+  EventID: baseeventid
+  Event-ID: baseeventid
+  Event_ID: baseeventid
+  eventId: baseeventid
+  event_id: baseeventid
+  event-id: baseeventid
+  eventid: baseeventid
+  HostApplication: devicecustomstring1
+  HostName: sourcehostname
+  HostVersion: devicecustomstring6
+  Message: message
+  ScriptBlockText: customstring7
