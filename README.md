@@ -1,23 +1,9 @@
-# Sigma Translator for Securonix
+# Sigma Translator for Securonix Snypr Platform
 
-In this Project, Sigma rules are translated into Securonix SIEM query format, that is, Spotter Query Format. Sigma tools are used as framework to build the backend python file and configuration file for Securonix. More details on Sigma can be found [here](https://github.com/SigmaHQ/sigma).
+This repository hosts the backend Sigma convertor and releavent field mapping configuration files requires by the Sigma Framework to convert Sigma rules (YAML format) into Spotter queries
+More details on Sigma can be found [here](https://github.com/SigmaHQ/sigma).
 
-<br/>
-
-This folder contains following files:
-1. Securonix Backend file - securonix.py
-2. YAML configuration files
-
-<br/>
-
-## Securonix YAML Configuration Files
-Multiple YAML configuration files are created based on the functionalities defined in Spotter. Each functionalities represent a YAML configuration file which consists of Sigma attributes mapped to Spotter Attributes.
-
-<br/>
-
-## SIGMA Translator set-up
-
-<br/>
+## Setup and Usage Guide
 
 Download the sigma code from [here](https://github.com/SigmaHQ/sigma). Install Python Repositories using requirements.txt as
 ```
@@ -33,49 +19,43 @@ Add the YAML configuration files from the current github respository to the fold
 ```
 tools/config/
 ```
-<br/>
 
 Translate the Sigma rule into Securonix Spotter Query as:
 ```
 tools/sigma/sigmac.py -t securonix -c tools/config/<yaml-configuration-file> <sigma-rule-file>
 ```
+## Configuration file references for Securonix functionalities
 
-<br/>
+Multiple YAML configuration files are created based on the functionalities defined in Spotter. Each functionalities represent a YAML configuration file which consists of Sigma attributes mapped to Spotter Attributes.
 
-## YAML Configuration files
 
-![image](https://user-images.githubusercontent.com/62869530/113169918-0e309c00-9214-11eb-832f-9cb9d7c1f5dc.png)
+| Functionality                         | YAML Configuration File      |
+|---------------------------------------|------------------------------|
+| Web Server                            | securonix_webserver.yml      |
+| Network Access Control / NAC          | securonix_nac.yml            |
+| DNS / DHCP                            | securonix_dns_dhcp.yml       |
+| Web Proxy                             | securonix_webproxy.yml       |
+| Endpoint Management Systems           | securonix_ems.yml            |
+| Unix / Linux / AIX                    | securonix_linux.yml          |
+| Authentication / SSO / Single Sign-On | securonix_authentication.yml |
+| Next Generation Firewall              | securonix_ngfw.yml           |
+| Microsoft Windows                     | securonix_windows.yml        |
+| Microsoft Windows Powershell          | securonix_win_powershell.yml |
+| Cloud Services / Applications         | securonix_cloud.yml          |
 
-<br/>
-
-## Sigma rule translation
-
-The YAML configuration files are created based on the functionality in Spotter, that is, each functioanlity represents a YAML configuration files. Based on the configuration file provided in the input command, spotter query displays the attribute "rg_functionality". The attributes provided in the Sigma rules under "detection" are mapped to the spotter attributes based on the configuration file (fieldmappings). If the attribute mappting is not present in the configuration file, it will be shown as rawevent with index = archive.
-
-<br/>
 
 ## Examples
 
 CVE-2021-26858 Exchange Exploitation (experimental)
-<br/>
-
 ![image](https://user-images.githubusercontent.com/62869530/113162053-edb11380-920c-11eb-8f87-513ea35ab948.png)
-<br/>
-
 Spotter Query for CVE-2021-26858 Exchange Exploitation mapped to functionality "Microsoft Windows" (All attributes of Sigma rule mapped to Spotter)
 ```
 tools/sigma/sigmac.py -t securonix -c tools/config/securonix-windows.yml rules/windows/file_event/sysmon_cve_2021_26858_msexchange.yml
 ```
 ![image](https://user-images.githubusercontent.com/62869530/113162879-a70fe900-920d-11eb-9ad6-46744631d79d.png)
 
-<br/>
-
 Linux Crond Process (experimental)
-<br/>
-
 ![image](https://user-images.githubusercontent.com/62869530/113163833-88f6b880-920e-11eb-991f-943ce68db1b5.png)
-<br/>
-
 Spotter Query for Linux Crond Process mapped to functionality "Unix / Linux / AIX" (Attributes with no mapping available shown as rawevent with index = archive)
 ```
 tools/sigma/sigmac.py -t securonix -c tools/config/securonix-windows.yml rules/linux/auditd/lnx_auditd_masquerading_crond.yml
@@ -83,6 +63,32 @@ tools/sigma/sigmac.py -t securonix -c tools/config/securonix-windows.yml rules/l
 ![image](https://user-images.githubusercontent.com/62869530/113164453-1d611b00-920f-11eb-8270-a475ffafa9ac.png)
 
 
+## Version 
+The current release version is **0.1**
+
+This is a ***BETA*** release
 
 
+## Limitations / Known Issues
+
+1. Supported Snypr version is 6.4
+2. Fallback to rawEvent and index=archive when field mappings are not found
+3. Not all Sigma rules are supported. We are working towards adding support for as many rules as possible.
+4. Unsupported conditions/modifiers
+    - Modifiers
+        - re
+        - base64
+        - base64offset
+        - utf16le
+        - utf16be
+        - utf16
+        - wide
+    - Conditions
+        - Aggregate Functions
+            - min
+            - max
+            - avg
+            - sum
+        - NEAR
+5. (BUG) In some queries the NOT operator is placed incorrectly
 
