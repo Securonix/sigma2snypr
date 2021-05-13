@@ -12,20 +12,17 @@ logsources:
     conditions:
       rg_functionality: Web Server
 fieldmappings:
-  cs-method: requestmethod
-  cs-uri: requesturl
-  c-uri: requesturl
-  c-useragent: customstring9
-  method: requestmethod
-  referer: customstring4
-  sc-status: customstring1
-  useragent: customstring9
-  c-ip: ipaddress
-  client_ip: ipaddress
-  url: requesturl
+  client-ip: IpAddress
+  cs-method: Method
+  c-uri: RequestUrl
+  cs-uri: RequestUrl
+  uri_query: RequestUrl
+  c-ip: IpAddress
   vhost:
-    - destinationhostname
-    - sourcehostname
-  uri_query: requesturl
-# response:
-# c-dns:  
+    - DestinationHostName
+    - SourceHostName
+  response: EventOutcome
+  sc-status: EventOutcome
+  c-useragent: RequestClientApplication
+  referer: Referrer
+  #c-dns: 

@@ -8,9 +8,18 @@ logsources:
     conditions:
       rg_functionality: Next Generation firewall
 fieldmappings:
-  dst_ip: destinationaddress
-  dst_port: destinationport
-  src_ip: sourceaddress
-  action:
-    - customstring31
-    - deviceaction
+  dst_ip: DestinationAddress
+  dst_port: DestinationPort
+  src_ip: SourceAddress
+  action: 
+    - FilterAction
+    - DeviceAction
+  CmdSet: CommandName
+  User:
+    - DestinationUserName
+    - SourceUserName
+  parent_domain: SourceDnsDomain
+  Query: RequestContext
+  record_type: RecordType
+  #Privilege_Level: 
+  #Remote_Address: 

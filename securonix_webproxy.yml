@@ -8,18 +8,18 @@ logsources:
     conditions:
       rg_functionality: Web Proxy
 fieldmappings:
-  r-dns: destinationntdomain
-  c-useragent: devicecustomfloatingpoint4label4
-  c-uri:
-    - customstring1
-    - customstring30
-  cs-method: requestmethod
-  cs-host: customstring21
-  cs-cookie: customstring56
-  c-uri-extension: oldfiletype
-  cs-uri-query: customstring30
-  c-uri-query: customstring30
-  c-uri-stem: customstring1
-  c-ip: ipaddress
-  ClientIP: ipaddress
-  cs-ip: ipaddress
+  c-ip: IpAddress
+  ClientIP: IpAddress
+  cs-ip: DestinationAddress
+  r-dns: DestinationHostName
+  cs-host: DestinationHostName
+  c-useragent: UserAgent
+  c-uri: RequestUrl
+  cs-method: Method
+  cs-uri-query: CsUriQuery
+  c-uri-query: CsUriQuery
+  c-uri-extension: CsUriExtension
+  #c-uri-stem: 
+  cs-cookie: CsCookie
+  sc-status: Status
+  sc-bytes: bytesin

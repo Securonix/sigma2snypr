@@ -27,29 +27,44 @@ logsources:
     conditions:
       rg_functionality: Endpoint Management Systems
 fieldmappings:
-  Destination: filename
-  Details: additionaldetails20
-  EventID: baseeventid
-  Event-ID: baseeventid
-  Event_ID: baseeventid
-  eventId: baseeventid
-  event_id: baseeventid
-  event-id: baseeventid
-  eventid: baseeventid
-  Imphash: filehash
-  Image:
-    - customstring54
-    - customstring57
-  QueryResults: customstring53
-  NewName: devicecustomstring2
-  PipeName: filename
-  SourceImage:
-    - filepath
-    - filename
-  StartModule: customstring58
-  StartFunction: customstring55
+  SourceImage: 
+    - FilePath
+    - FileName
   TargetImage:
-    - filename
-    - filepath
-  TargetObject: customstring47
-
+    - FileName
+    - FilePath
+  StartModule: StartModule
+  StartFunction: StartFunction
+  Imphash:
+    - Md5Hash
+    - FileHash
+  TargetFilename: FileName
+  Image:
+    - DeviceProcessName
+    - ParentProcessname
+    - ProcessName
+    - GrandParentProcessName
+    - Image
+    - FileOrImage
+  CommandLine: ChildProcessCommandLine
+  QueryResult: QueryResult
+  QueryName: DestinationHostName
+  QueryStatus: Outcome
+  #Imphash: Md5Hash
+  #Imphash: FileHash
+  IntegrityLevel: IntegrityLevel
+  ParentProcessCommandLine: ParentProcessCommandLine
+  ParentImage: ParentImage
+  PipeName: FileName
+  ProcessID: 
+    - ProcessId
+    - ParentProcessId
+  Device:
+    - DeviceHostName
+    - DeviceMacAddress
+    - DeviceNtDomain
+  Destination: FileName
+  OiginalFileName: OldFileName
+  #TargetProcessAddress: 
+  #Details: 
+  #ImageLoaded: 

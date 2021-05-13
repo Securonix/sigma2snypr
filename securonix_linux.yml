@@ -52,25 +52,34 @@ logsources:
     conditions:
       rg_functionality: Unix / Linux / AIX
 fieldmappings:
-  keyword: devicecustomstring6
-  Command:
-    - devicecustomstring1
-    - customstring2
-  command:
-    - devicecustomstring1
-    - customstring2
-  exe: devicecustomstring1
-  SYSCALL:
-    - sourceprocessname
-    - devicecustomstring1
-  type:
-    - sourceprocessname
-    - devicecustomstring1
-  name:
-    - filename
-    - filepath
+  name: 
+    - FileName
+    - FilePath
+  exe: Command
+  Command: 
+    - FullCommand
+    - Command
   comm:
-    - devicecustomstring1
-    - customstring2
-  key:
-    - devicecustomstring6
+    - FullCommand
+    - Command
+  command:
+    - FullCommand
+    - Command
+  CommandLine: Command
+  type:
+    - Command
+    - ParentProcessName
+  key: Raw
+  SYSCALL:
+    - ParentProcessName
+    - Command
+  ProcessName: ParentProcessName
+  Image:
+    - FileName
+    - FilePath
+  message: Message
+  pam_message: Message
+  USER: SoureUserName
+  pam_user: SoureUserName
+  pam_host: SourceHostName
+  TargetFileName: FileName

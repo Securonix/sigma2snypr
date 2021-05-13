@@ -115,160 +115,133 @@ logsources:
     conditions:
       rg_functionality: Microsoft Windows
 fieldmappings:
-  Accesses: customstring15
-  AccessList: customstring15
-  AccountName: accountname
-  AuditPolicyChanges: customstring14
-  AuthenticationPackage: devicecustomstring4
-  AuthenticationPackageName: devicecustomstring4
-  CallingProcessName: customstring49
-  ComputerName: devicehostname
-  CommandLine:
-    - resourcecustomfield3
-    - customstring6
-  Commandline:
-    - resourcecustomfield3
-    - customstring6
-  CurrentDirectory: filepath
-  DestinationHostname: destinationhostname
-  DestinationIp: destinationaddress
-  DestinationPort: destinationport
-  DestPort: destinationport
-  Description: customstring40
-  Details:
-    - customstring19
-    - devicecustomfloatingpoint2label2
-    - additionaldetails20
-  EventID: baseeventid
-  Event-ID: baseeventid
-  Event_ID: baseeventid
-  eventId: baseeventid
-  event_id: baseeventid
-  event-id: baseeventid
-  eventid: baseeventid
-  EventType: transactionstring5
-  FailureCode: resourcecustomfield5
-  GroupName: devicecustomstring1
-  GroupSid: customstring30
-  Imphash: filehash
+  EventID: EventId
+  eventId: EventId
+  eventid: EventId
+  Event-ID: EventId
+  event-id: EventId
+  Event_ID: EventId
+  event_id: EventId
+  EventCode: EventId
+  Access: Access
+  ShareName: ShareInformationShareName
+  RelativeTargetName: RelativeTargetName
+  #RelativeTargetName: RelativeTargetName
+  #RelativeTargetName: RelativeTargetName
+  LDAPDisplayName: DisplayName
+  Value: NewValue
+  ObjectType: ObjectType
+  ObjectName: ObjectPath
+  ObjectServer: DestinationHostName
+  Properties: OperationProperties
+  SubjectUserName: SourceUserName
+  #SujectUserName: SourceUserName
+  ComputerName: SourceHostName
+  Computer_Name: SourceHostName
+  SujectDomainName: SourceNtDomain
+  LogonType: LogonType
+  AuthenticationPackageName: AuthenticationPackage
+  AuthenticationPackage: AuthenticationPackage
+  AcccountName: AccountName
+  Account_Name: AccountName
+  Message: Message
+  AttributeLDAPDispalyName: DisplayAccount
+  Path: FilePath
+  Workstation: SourceHostName
+  WorkstationName: DestinationHostName
+  PolicyName: Policy_Name
+  TargetUser: DestinationUserName
+  TargetProcessId: DestinationProcessId
+  FilePath: FilePath
+  FileHash: FileHash
   Image:
-    - customstring54
-    - destinationprocessname
-    - sourceprocessname
-  ImageLoaded: filepath
-  IntegrityLevel: customstring7
-  IpAddress: ipaddress
-  LogonId: customnumber9
-  LogonProcessName: customstring52
-  LogonType: customnumber1
-  Message: message
-  NewValue: devicecustomstring5
-  ObjectType: customstring24
-  OriginalFileName: oldfilename
-  OriginalFilename: oldfilename
-  ParentCommandLine: resourcecustomfield3
-  ParentImage: customstring59
-  ParentIntegrityLevel: customstring7
-  ParentUser: sourceusername
-  PasswordLastSet: transactionstring4
-  Path: filepath
-  ProcessCommandline:
-    - resourcecustomfield1
-    - resourcecustomfield2
-    - resourcecustomfield3
-  ProcessCommandLine:
-    - resourcecustomfield1
-    - resourcecustomfield2
-    - resourcecustomfield3
-  ProcessName:
-    - destinationprocessname
-    - sourceprocessname
-    - customstring54
-  Properties: customstring39
-  ServiceName:
-    - destinationservicename
-    - sourceprocessname
-    - customstring54
-  sha1: filehash
-  ShareName: filename
-  SourceAddress: sourceaddress
-  SourceImage:
-    - sourceprocessname
-    - filepath
-    - filename
-  SourceNetworkAddress: sourceaddress
-  SourcePort: sourceport
-  SourceWorkstation: accountname
-  TargetImage:
-    - customstring54
-    - destinationprocessname
-    - filename
-    - filepath
-  TaskName: filepath
-  TargetFileName: filename
-  TargetFilename: filename
-  TargetObject: customstring47
-  TicketOptions: customstring59
-  User:
-    - sourceusername
-    - destinationusername
-  UserName:
-    - sourceusername
-    - destinationusername
-  FileName: filename
-  Signature: customstring52
-  TargetDetails: customstring19
-  ObjectName: customstring56
-  ServiceFileName: filename
-  Account_Name: accountname
-  Computer_Name: devicehostname
-  LogonGuid:
-    - transactionstring5
-    - transactionstring2
-  Hashes: filehash
-  PolicyName: resourcecustomfield1
-  TargetUser: destinationusername
-  TargetProcessId: destinationprocessid
-  FilePath: filepath
-  FileHash: filehash
-  SubjectAccountName: accountname
-  EventCode: baseeventid
-  ClientAddress: sourceaddress
-  SubjectDomainName: sourcentdomain
-  SubjectUserName: sourceusername
-  ProcessID:
-    - oldfileid
-    - destinationprocessid
-    - deviceprocessid
-  DomainName:
-    - destinationntdomain
-    - customstring29
-    - customstring26
-    - sourcentdomain
-  TargetName:
-    - filepath
-    - filename
-    - destinationprocessname
-  Computer: devicehostname
-  RelativeTargetName:
-    - destinationprocessname
-    - filepath
-    - filename
-  AccountDomain:
-    - customstring25
-    - customstring26
-    - sourcentdomain
-    - destinationntdomain
-  SAMAccountName: accountname
-#  Originating_Computer:
-#  CallTrace:
-#  ParentProcessGuid:
-#  RuleId:
-#  RuleName:
-#  Fqbn:
-#  ServiceFileName:
-#  GrantedAccess:
-#  Initiated:
-#  DestinationIsIpv6:
-#  DetectionSource:
-
+    - ProcessInformationProcessName
+    - DestinationProcessName
+    - SourceProcessName
+  CommandLine: CommandLine
+  #CommandLine: CommandLine
+  #Commandline: CommandLine
+  Commandline: CommandLine
+  User: 
+    - SourceUserName
+    - DestinationUserName
+  ServiceName: DestinationServiceName
+  ServiceFileName: ShareInformationShareName
+  DeviceDescription: Description
+  ImagePath: FilePath
+  ProcessName: 
+    - DestinationProcess
+    - SourceProcess
+  ParentImage: SourceProcess
+  SAMAccountName: DisplayAccount
+  ClientAddress: SourceAddress
+  Description: Description
+  LogonProcessName: DetailedAuthenticationInformationLogonProcessName
+  SubjectUserSid: sourceuserid
+  KeyLength: KeyLength
+  ServicePrincipalName: PrincipalName
+  Changed Attributes.Password Last Set: PasswordLastSet
+  Keywords: Outcome
+  PrivilegeList: DestinationUserPrivileges
+  AccessList: Access
+  Status: FailureStatus
+  FailureCode: FailureCode
+  ProcessId: 
+    - SourceProcessId
+    - DeviceProcessId
+    - DestionationProcessId
+  CallingProcessName: ProcessInformationCallerProcessName
+  DomainName: 
+    - SourceNtDomain
+    - DestinationNtDomain
+    - GroupDomain
+    - NetworkAccountDomain
+  TargetName: 
+    - FilePath
+    - ShareInformationShareName
+    - DestinationProcess
+  TicketOptions: TicketOptions
+  TicketEncryptionType: CipherAlgorithm
+  GroupName: GroupName
+  GroupSid: GroupSecurityId
+  Level: deviceseverity
+  Computer: SourceHostName
+  SourceNetworkAddress: SourceAddress
+  SourcePort: SourcePort
+  IpAddress: IpAddress
+  DestinationIp: DestinationAddress
+  DestinationIP: DestinationAddress
+  DestinationPort: DestinationPort
+  DestinationHostname: DestinationHostname
+  AccountDomain: DestinationNtDomain
+  Target_Server_Name: DestinationHostName
+  TargetObject: ProcessInformationCallerProcessPath
+  TargetImage: 
+    - ShareInformationShareName
+    - FilePath
+    - SourceLogonGUID
+  LogonGUID: 
+    - TargetLogonGUID
+  SubjectLogonId: SourceLogonId
+  #SubjectLogonId: SourceLogonId
+  TargetLogonId: TargetLogonId
+  Logon ID: TargetLogonID
+  Hashes: FileHash
+  #HiveName: 
+  #SidHistory: 
+  #DeviceName: 
+  #AuditSourceName: 
+  #EventType: 
+  #ParentCommandLine: 
+  #CallTrace: 
+  #GrantedAccess: 
+  #Company: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/win_hack_secutyxploded.yml
+  #ParentProcessGuid: 
+  #ChildImage: 
+  #Source: 
+  #AccessMask: 
+  #ObjectClass: 
+  #Fqbn: 
+  #AuditPolicyChange: 
+  #ObjectValueName: 
+  #DeviceClassName: 
