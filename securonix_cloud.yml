@@ -8,12 +8,12 @@ logsources:
     conditions:
       rg_functionality: Cloud Services / Applications
 fieldmappings:
-  eventName: DeviceEventCategory
-  eventSource: EventSource
-  errorCode: EventOutcome
-  errorMessage: Message
-  userIdentity.type: UserIdentityType
-  userIdentity.arn: UserIdentityArn
-  requestParameters.attribute: DeviceAction
-  responseElements.ConsoleLogin: EventOutcome
-  #requestParameters.userData: 
+  eventName: '@deviceeventcategory'
+  eventSource: '@customstring42'
+  userIdentity.type: '@resourcecustomfield1'
+  userIdentity.arn: '@additionaldetails8'
+  requestParameters.attribute: '@deviceaction'
+  errorMessage: '@message'
+  errorCode: '@eventoutcome'
+  responseElements.ConsoleLogin: '@eventoutcome'
+  #requestParameters.userData: '@'

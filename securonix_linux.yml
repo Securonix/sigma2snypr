@@ -53,33 +53,33 @@ logsources:
       rg_functionality: Unix / Linux / AIX
 fieldmappings:
   name: 
-    - FileName
-    - FilePath
-  exe: Command
+    - '@filename'
+    - '@filepath'
+  exe: '@devicecustomstring1'
+  CommandLine: '@devicecustomstring1'
   Command: 
-    - FullCommand
-    - Command
-  comm:
-    - FullCommand
-    - Command
-  command:
-    - FullCommand
-    - Command
-  CommandLine: Command
-  type:
-    - Command
-    - ParentProcessName
-  key: Raw
-  SYSCALL:
-    - ParentProcessName
-    - Command
-  ProcessName: ParentProcessName
-  Image:
-    - FileName
-    - FilePath
-  message: Message
-  pam_message: Message
-  USER: SoureUserName
-  pam_user: SoureUserName
-  pam_host: SourceHostName
-  TargetFileName: FileName
+    - '@devicecustomstring1'
+    - '@customstring2'
+  command: 
+    - '@devicecustomstring1'
+    - '@customstring2'
+  comm: 
+    - '@devicecustomstring1'
+    - '@customstring2'
+  type: 
+    - '@devicecustomstring1'
+    - '@sourceprocessname'
+  key: '@devicecustomstring6'
+  SYSCALL: 
+    - '@sourceprocessname'
+    - '@devicecustomstring1'
+  ProcessName: '@sourceprocessname'
+  TargetFileName: '@filename'
+  Image: 
+    - '@filename'
+    - '@filepath'
+  USER: '@sourceusername'
+  message: '@message'
+  pam_message: '@message'
+  pam_user: '@sourceusername'
+  pam_host: '@sourcehostname'

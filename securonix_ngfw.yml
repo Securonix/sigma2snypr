@@ -8,18 +8,18 @@ logsources:
     conditions:
       rg_functionality: Next Generation firewall
 fieldmappings:
-  dst_ip: DestinationAddress
-  dst_port: DestinationPort
-  src_ip: SourceAddress
+  dst_ip: '@destinationaddress'
+  dst_port: '@destinationport'
+  src_ip: '@sourceaddress'
   action: 
-    - FilterAction
-    - DeviceAction
-  CmdSet: CommandName
-  User:
-    - DestinationUserName
-    - SourceUserName
-  parent_domain: SourceDnsDomain
-  Query: RequestContext
-  record_type: RecordType
-  #Privilege_Level: 
-  #Remote_Address: 
+    - '@customstring31'
+    - '@deviceaction'
+  CmdSet: '@customstring14'
+  User: 
+    - '@destinationusername'
+    - '@sourceusername'
+  parent_domain: '@sourcednsdomain'
+  Query: '@requestcontext'
+  record_type: '@customstring5'
+  #Remote_Address: '@'
+  #Privilege_Level: '@'
