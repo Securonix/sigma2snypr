@@ -115,136 +115,6 @@ logsources:
     conditions:
       rg_functionality: Microsoft Windows
 fieldmappings:
-  EventID: EventId
-  eventId: EventId
-  eventid: EventId
-  Event-ID: EventId
-  event-id: EventId
-  Event_ID: EventId
-  event_id: EventId
-  EventCode: EventId
-  Access: Access
-  ShareName: ShareInformationShareName
-  RelativeTargetName: RelativeTargetName
-  #RelativeTargetName: RelativeTargetName
-  #RelativeTargetName: RelativeTargetName
-  LDAPDisplayName: DisplayName
-  Value: NewValue
-  ObjectType: ObjectType
-  ObjectName: ObjectPath
-  ObjectServer: DestinationHostName
-  Properties: OperationProperties
-  SubjectUserName: SourceUserName
-  #SujectUserName: SourceUserName
-  ComputerName: SourceHostName
-  Computer_Name: SourceHostName
-  SujectDomainName: SourceNtDomain
-  LogonType: LogonType
-  AuthenticationPackageName: AuthenticationPackage
-  AuthenticationPackage: AuthenticationPackage
-  AcccountName: AccountName
-  Account_Name: AccountName
-  Message: Message
-  AttributeLDAPDispalyName: DisplayAccount
-  Path: FilePath
-  Workstation: SourceHostName
-  WorkstationName: DestinationHostName
-  PolicyName: Policy_Name
-  TargetUser: DestinationUserName
-  TargetProcessId: DestinationProcessId
-  FilePath: FilePath
-  FileHash: FileHash
-  Image:
-    - ProcessInformationProcessName
-    - DestinationProcessName
-    - SourceProcessName
-  CommandLine: CommandLine
-  #CommandLine: CommandLine
-  #Commandline: CommandLine
-  Commandline: CommandLine
-  User: 
-    - SourceUserName
-    - DestinationUserName
-  ServiceName: DestinationServiceName
-  ServiceFileName: ShareInformationShareName
-  DeviceDescription: Description
-  ImagePath: FilePath
-  ProcessName: 
-    - DestinationProcess
-    - SourceProcess
-  ParentImage: SourceProcess
-  SAMAccountName: DisplayAccount
-  ClientAddress: SourceAddress
-  Description: Description
-  LogonProcessName: DetailedAuthenticationInformationLogonProcessName
-  SubjectUserSid: sourceuserid
-  KeyLength: KeyLength
-  ServicePrincipalName: PrincipalName
-  Changed Attributes.Password Last Set: PasswordLastSet
-  Keywords: Outcome
-  PrivilegeList: DestinationUserPrivileges
-  AccessList: Access
-  Status: FailureStatus
-  FailureCode: FailureCode
-  ProcessId: 
-    - SourceProcessId
-    - DeviceProcessId
-    - DestionationProcessId
-  CallingProcessName: ProcessInformationCallerProcessName
-  DomainName: 
-    - SourceNtDomain
-    - DestinationNtDomain
-    - GroupDomain
-    - NetworkAccountDomain
-  TargetName: 
-    - FilePath
-    - ShareInformationShareName
-    - DestinationProcess
-  TicketOptions: TicketOptions
-  TicketEncryptionType: CipherAlgorithm
-  GroupName: GroupName
-  GroupSid: GroupSecurityId
-  Level: deviceseverity
-  Computer: SourceHostName
-  SourceNetworkAddress: SourceAddress
-  SourcePort: SourcePort
-  IpAddress: IpAddress
-  DestinationIp: DestinationAddress
-  DestinationIP: DestinationAddress
-  DestinationPort: DestinationPort
-  DestinationHostname: DestinationHostname
-  AccountDomain: DestinationNtDomain
-  Target_Server_Name: DestinationHostName
-  TargetObject: ProcessInformationCallerProcessPath
-  TargetImage: 
-    - ShareInformationShareName
-    - FilePath
-    - SourceLogonGUID
-  LogonGUID: 
-    - TargetLogonGUID
-  SubjectLogonId: SourceLogonId
-  #SubjectLogonId: SourceLogonId
-  TargetLogonId: TargetLogonId
-  Logon ID: TargetLogonID
-  Hashes: FileHash
-  #HiveName: 
-  #SidHistory: 
-  #DeviceName: 
-  #AuditSourceName: 
-  #EventType: 
-  #ParentCommandLine: 
-  #CallTrace: 
-  #GrantedAccess: 
-  #Company: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/win_hack_secutyxploded.yml
-  #ParentProcessGuid: 
-  #ChildImage: 
-  #Source: 
-  #AccessMask: 
-  #ObjectClass: 
-  #Fqbn: 
-  #AuditPolicyChange: 
-  #ObjectValueName: 
-  #DeviceClassName: 
   Access: '@customstring15'
   ShareName: '@filename'
   EventID: '@baseeventid'
@@ -357,6 +227,7 @@ fieldmappings:
   Hashes: '@filehash'
   SubjectLogonId: '@sessionid'
   Logon ID: '@customstring18'
+  #ImageLoaded: '@'
   #AuditSourceName: '@'
   #ParentCommandLine: '@'
   #GrantedAccess: '@'
