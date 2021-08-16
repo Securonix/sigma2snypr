@@ -117,13 +117,38 @@ class SecuronixBackend(SingleTextQueryBackend):
 
         return result
 
+    def sigma_to_spotter(self, line):
+        key_words=["CONTAINS ", "IN ", "BETWEEN ", "ENDS WITH ", "STARTS WITH ", "EQUALS ", "NULL "]
+        if("NOT (" in line):
+            sigma = line
+            query = ""
+            fetched = 0
+            while True:
+                if("NOT (" in sigma):
+                    query += sigma[fetched:sigma.find("NOT")]
+                    fetched =  sigma.find("NOT")
+                    s_half = sigma[fetched+3:]
+                    within_brackets = s_half[:s_half.find(")")+1]
+                    within_brackets_len = len(within_brackets)
+                    for i in key_words:
+                        within_brackets = within_brackets.replace(i,"NOT "+i)
+                    query += within_brackets
+                    fetched+= within_brackets_len
+                    sigma = sigma.replace("NOT","",1)
+                else:
+                    query+=sigma[fetched:]
+                    break
+            return query
+        else:
+            return line
+
     def generateQuery(self, parsed, timeframe):
         self.functionalityCount = 0
         result = self.generateNode(parsed.parsedSearch)
         if result and parsed.parsedAgg:
             result += self.generateAggregation(parsed.parsedAgg, timeframe)
-
-        return result
+        query = self.sigma_to_spotter(str(result))
+        return query
 
     # Generate Query for Fields
     def generateQueryforFields(self, sigmaparser):
