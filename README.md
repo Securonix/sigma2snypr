@@ -1,3 +1,5 @@
+# NOTE: This repository is no longer maintained. Please visit https://github.com/Securonix/SigmaToSecuronix for the updated (re-written) convertor 
+
 # Sigma Translator for Securonix Snypr Platform
 
 This repository hosts the backend Sigma convertor and releavent field mapping configuration files requires by the Sigma Framework to convert Sigma rules (YAML format) into Spotter queries
